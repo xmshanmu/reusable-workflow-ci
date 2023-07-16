@@ -1,0 +1,41 @@
+name: reusable workflow
+# continuous integration 
+
+on:
+ workflow_call:
+   #inputs:
+    # filename:
+     # required: true
+      #type: string 
+   secrets:
+      Workflow2_PAT_TOKEN_GITHUB:
+        required: true
+
+ 
+env:
+  JAVA_VERSION: '17'                       
+
+jobs:
+  build_and_test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@v3
+      
+    - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
+      uses: actions/setup-java@v3
+      with:
+        java-version: ${{ env.JAVA_VERSION }}
+        distribution: 'temurin'
+        
+    - name: Cache the Maven packages to speed up build
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+                
+
+    - name: Build project with Maven
+      run: mvn -B package --file pom.xml	  	  
