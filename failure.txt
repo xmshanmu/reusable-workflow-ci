@@ -1,0 +1,50 @@
+Run ./gradle-4.10.1/bin/gradle build -PbuildVersion=
+  ./gradle-4.10.1/bin/gradle build -PbuildVersion=
+  shell: /usr/bin/bash -e {0}
+  env:
+    JAVA_HOME: /opt/hostedtoolcache/Java_Adopt_jdk/8.0.392-8/x64
+
+Welcome to Gradle 4.10.1!
+
+Here are the highlights of this release:
+ - Incremental Java compilation by default
+ - Periodic Gradle caches cleanup
+ - Gradle Kotlin DSL 1.0-RC6
+ - Nested included builds
+ - SNAPSHOT plugin versions in the `plugins {}` block
+
+For more details see https://docs.gradle.org/4.10.1/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+A problem occurred configuring root project 'release'.
+> Could not resolve all artifacts for configuration ':classpath'.
+   > Could not resolve com.rakbank.infosys.lib:gradle-plugin:1111.
+     Required by:
+         project :
+      > Could not resolve com.rakbank.infosys.lib:gradle-plugin:1111.
+         > Could not get resource 'https://maven.pkg.github.com/Rakbank-DEH-Onboarding/RetailOnboarding-AccMS/com/rakbank/infosys/lib/gradle-plugin/1111/gradle-plugin-1111.pom'.
+            > java.lang.NullPointerException (no error message)
+   > Could not resolve com.rakbank.infosys.lib.fbk:gradle-plugin:1111.
+     Required by:
+         project :
+      > Could not resolve com.rakbank.infosys.lib.fbk:gradle-plugin:1111.
+         > Could not get resource 'https://maven.pkg.github.com/Rakbank-DEH-Onboarding/RetailOnboarding-AccMS/com/rakbank/infosys/lib/fbk/gradle-plugin/1111/gradle-plugin-1111.pom'.
+            > java.lang.NullPointerException (no error message)
+   > Could not resolve com.rakbank.infosys.lib.fba:gradle-plugin:1111.
+     Required by:
+         project :
+      > Could not resolve com.rakbank.infosys.lib.fba:gradle-plugin:1111.
+         > Could not get resource 'https://maven.pkg.github.com/Rakbank-DEH-Onboarding/RetailOnboarding-AccMS/com/rakbank/infosys/lib/fba/gradle-plugin/1111/gradle-plugin-1111.pom'.
+            > java.lang.NullPointerException (no error message)
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 7s
+Error: Process completed with exit code 1.
